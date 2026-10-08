@@ -10,7 +10,7 @@
     <script>
 
         function getPassword() {
-           let inputUser = prompt(`Enter password. You got ${tryPassword} trys left. Password will reveal secret message.`);
+           let inputUser = prompt(`Enter password. You got ${tryPassword} tries left. Password will reveal secret message.`);
            return inputUser;
         }
 
@@ -21,22 +21,24 @@
        
         function comparePassword(inputUser, password) {
             if (inputUser === password) {
-                tryPassword--;
                 alert("Correct! The secret message is \n'Take it easy, but take it.'")
+                return true;
             } else {
                 tryPassword--;
-                alert(`Wrong password. You got ${tryPassword} left.`)
+                alert(`Wrong password. You got ${tryPassword} tries left.`);
+                return false;
             }
         }
 
         let r = 1;
-        while (r <= 3) {
-            comparePassword(getPassword(), password)
+        let correct = false;
+        while (r <= 3 && !correct) {
+            correct = comparePassword(getPassword(), password)
             r++
         }
 
         function finalMsg() {
-            if (tryPassword < 1) {
+            if (!correct) {
                 alert("You're out of tries. Refresh page in order to restart.")
             }
         }
