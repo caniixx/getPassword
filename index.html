@@ -34,9 +34,18 @@
             comparePassword(getPassword(), password)
             r++
         }
+
+        function finalMsg() {
+            if (tryPassword < 1) {
+                alert("You're out of tries. Refresh page in order to restart.")
+            }
+        }
+
+        finalMsg();
+
     } 
 
-        startPassword();
+    startPassword();
 
 
 
