@@ -8,7 +8,27 @@
 <body>
 
     <script>
-        
+
+        function getPassword() {
+           let inputUser = prompt(`Enter password. You got ${tryPassword} left. Password will reveal secret message`);
+           return inputUser;
+        }
+
+        let password = "Honig";
+        let tryPassword = 3;
+
+        function comparePassword(inputUser, password) {
+            if (inputUser === password) {
+                tryPassword--;
+                alert("Correct! The secret message is \n'Take it easy, but take it.'")
+            } else {
+                tryPassword--;
+                alert(`Wrong password. You got ${tryPassword} left.`)
+            }
+        }
+
+
+
     </script>
     
 </body>
